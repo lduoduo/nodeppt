@@ -175,12 +175,15 @@ var s = {
         }
         mv.play("/media/" + data.val + ".mp3", true);
     },
+    //发送消息
     sendMsg: function (msg) {
         socket.send(my.info, msg);
     },
+    //离开房间
     leave: function () {
         socket.emit('leave');
     },
+    //join 房间
     join: function () {
         socket.emit('join', my.info);
     },
@@ -202,14 +205,14 @@ var s = {
             });
             return;
         }
-        //切换抢板凳模式
+        //切换抽号模式，签到抽号
         if (data.option == 'setCode') {
             if (!my.isCommon) { return; }
             $('.J-start-code').removeClass('none');
             $('.J-start-code-no').addClass('none');
             return;
         }
-        //切换抢板凳模式
+        //切换抽号模式，座位号
         if (data.option == 'setCodeSitNo') {
             if (!my.isCommon) { return; }
             if (data.val_row && data.val_col) {
@@ -245,7 +248,7 @@ var s = {
             $('.page').removeClass('active');
             $('.page[data-page=' + data.page + ']').addClass('active');
         }
-        //抽中的处理
+        //号码抽中的处理
         if (data.option == 'code') {
             if (my.isAdmin) { return; }
             if (my.info.id == data.data.id) {
@@ -255,9 +258,9 @@ var s = {
                     msg: '<div class="alert-img"><img src="/img/' + data.data.img + '"></div>',
                     html: true
                 });
+                var audio = $('#audio')[0];
+                audio.play();
             }
-            var audio = $('#audio')[0];
-            audio.play();
         }
         //夫妇更名处理
         if (data.option == 'setGroup') {
@@ -397,7 +400,13 @@ var s = {
                 if (my.isCodeInprogress) {
                     clearInterval(my.codetimer);
                     var mydom = $('.J-result .J-code-id');
-                    var i = mydom.data('index'), mysex = mydom.data('sex');
+                    var i = mydom.data('id'), mysex = mydom.data('sex');
+                    var tmpList = my[mysex + 'list'];
+                    for(var j=0;j<tmpList.length;j++){
+                        if(tmpList[j].id == i){
+                            i = j;
+                        }
+                    }
                     var tmp = my[mysex + 'list'][i];
                     s.sendOption({
                         option: 'code',
@@ -467,6 +476,7 @@ var s = {
                     page: page,
                     option: option
                 };
+                //音乐的各种操作
                 if (option == 'music') {
                     if (name == "change") {
                         var val = $('.J-music-select').val();
@@ -477,6 +487,7 @@ var s = {
                     }
                     tmp.name = name;
                 }
+                //设置组名
                 if (option == 'setGroup') {
                     var val = $('.J-name-in').val();
                     if (!val) {
@@ -486,6 +497,7 @@ var s = {
                     tmp.name = name;
                     my.couples[name].name = val;
                 }
+                //切换cos照片
                 if (option == 'setPic') {
                     var val = $('.J-pic-in').val();
                     if (!val) {
@@ -493,6 +505,7 @@ var s = {
                     }
                     tmp.val = val;
                 }
+                //设置多少行多少列
                 if (option == 'setCodeSitNo') {
                     var val_row = $('.J-row-in').val();
                     var val_col = $('.J-col-in').val();
@@ -502,6 +515,7 @@ var s = {
                     tmp.val_row = val_row;
                     tmp.val_col = val_col;
                 }
+                //开放打分
                 if (option == 'enableScore') {
                     tmp.couples = my.couples;
                     tmp.level = my.cosplaylevel;
@@ -575,7 +589,7 @@ var s = {
         my.codetimer = setInterval(function () {
             var i = Math.floor(Math.random() * my.tmpLength);
             var tmp = my.tmpList[sex][i];
-            var html = '<div class="alert-img"><img src="/img/' + tmp.img + '"><p class="code-id J-code-id" data-index="' + i + '" data-sex="' + sex + '">' + tmp.id + '</p></div>';
+            var html = '<div class="alert-img"><img src="/img/' + tmp.img + '"><p class="code-id J-code-id" data-id="' + tmp.id + '" data-sex="' + sex + '">' + tmp.id + '</p></div>';
             $(my.tmpDom).html(html);
         }, 50);
         my.isCodeInprogress = !my.isCodeInprogress;
@@ -625,7 +639,7 @@ var s = {
 
 s.init();
 
-//一下这些部分在安卓机上报错
+//以下这些部分在安卓机上报错
 // function test(num) {
 //     for (let i = 0; i < num; i++) {
 //         my.addedlist.push(testa());
