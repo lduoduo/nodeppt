@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <meta name="wap-font-scale" content="no">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="applicable-device" content="mobile">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+  <title>周末欢乐~</title>
+  <link rel="stylesheet" href="/css/sweetalert.min.css">
+  <link rel="stylesheet" href="/css/room.css">
+  <body>
+  <a class="btn fixed btn-option J-open-detail J-admin none">操作</a>
+  <a class="btn fixed btn-taici J-open-taici J-admin none">台词</a>
+  <a class="btn fixed btn-option J-open-QR">+</a>
+  <div class="page screen-left zlh" data-page="zlh"></div>
+  <div class="page screen-left mulu" data-page="mulu"></div>
+  <div class="page screen-left part1" data-page="part1"></div>
+  <div class="page screen-left part2" data-page="part2"></div>
+  <div class="page screen-left part3" data-page="part3"></div>
+  <div class="page screen-left new" data-page="new"></div>
+  <div class="page screen-left part4" data-page="part4"></div>
+  <div class="page screen-left yx1" data-page="yx1"></div>
+  <div class="page screen-left yx2" data-page="yx2"></div>
+  <div class="page screen-left yx3" data-page="yx3"></div>
+  <div class="page screen-left yx4" data-page="yx4"></div>
+  <div class="page screen-left part5" data-page="part5"></div>
+  <div class="page screen-left yd1" data-page="yd1"></div>
+  <div class="page screen-left yd2" data-page="yd2"></div>
+  <div class="page screen-left yd3" data-page="yd3"></div>
+  <div class="page screen-left part6" data-page="part6"></div>
+  <div class="page screen-left part7" data-page="part7"></div>
+
+  <div class="bg"></div>
+  <div class="page main" data-page="home">
+      <ul class="msg-list J-msg"></ul>
+      <input type="text" id='msg' class="msg-in J-msg-in" placeholder='输入内容，键盘enter发送'>
+      <a class="btn btn-send J-send-msg">发送</a>
+  </div>
+  <div class="page screen-left code" data-page="code">
+      <div class="center J-mycode">
+          <p>点击屏幕看看自己的号码哟</p>
+      </div>
+  </div>
+  <div class="page screen-left" data-page="cosplay">
+      <div class="cosplay-list">
+        <div class="info">
+          <h3>游戏规则：</h3>
+          <p>两组"夫妇"，五张经典剧照，进行cosplay, 一张图片一轮评比比分，共计五轮，得分高的夫妇胜出</p>
+          <p>PS: 剧照中会用红色圈标出必须的道具，夫妇们必须要有对应的道具才可摆造型，请积极寻求场内朋友的帮助哦~</p>
+        </div>
+      </div>
+  </div>
+  <div class="page screen-left QR J-QR" data-page="QR">
+  </div>
+
+  <div class="right J-admin none" data-page="option">
+      <!-- 管理员操作界面 -->
+      <ul class="btn-list J-btn">
+          <li class="item " data-page="main">返回主场</li>
+
+          <!-- 音乐控制 -->
+          <li class="item ">
+                <select class="music-select J-music-select">
+                    <option value ="start_ckck" selected>音乐：开场</option>
+                    <option value ="bbb">音乐：抢凳子</option>
+                    <option value ="fire">音乐：FIRE</option>
+                    <option value ="cos_1">音乐：第一张图</option>
+                    <option value ="cos_2">音乐：第二张图</option>
+                    <option value ="cos_3">音乐：第三张图</option>
+                    <option value ="cos_4">音乐：第四张图</option>
+                    <option value ="cos_5">音乐：第五张图</option>
+                    <option value ="end_ineedu">音乐：结尾</option>
+                </select>
+            </li>
+            <li class="item ">
+                <input type="range" min="0.1" max="2" step="0.1" value="1" class="range-select J-music-range"/>
+            </li>
+            <li class="item" data-option="music" data-name="pause">暂停播放</li>
+            <li class="item" data-option="music" data-name="resume">恢复播放</li>
+            <li class="item" data-option="music" data-name="stop">停止播放</li>
+          <!-- PPT -->
+          <li class="item" data-page="zlh">周例会首页</li>
+          <li class="item" data-page="mulu">目录</li>
+          <li class="item" data-page="part1">蔡女神Time - part1</li>
+          <li class="item" data-page="part2">肖总Time - part2</li>
+          <li class="item" data-page="part3">新人介绍 - part3</li>
+          <li class="item" data-page="new">新人介绍 - new</li>
+          <li class="item" data-page="part4">一周你最棒 - part4</li>
+          <li class="item" data-page="yx1">一周你最棒 - yx1</li>
+          <li class="item" data-page="yx2">一周你最棒 -yx2</li>
+          <li class="item" data-page="yx3">一周你最棒 - yx3</li>
+          <li class="item" data-page="yx4">一周你最棒 - yx4</li>
+          <li class="item" data-page="part5">月度优秀 - part5</li>
+          <li class="item" data-page="yd1">月度优秀 - yd1</li>
+          <li class="item" data-page="yd2">月度优秀 -yd2</li>
+          <li class="item" data-page="yd3">月度优秀 - yd3</li>
+          <li class="item" data-page="part6">show time - part6</li>
+          <li class="item" data-page="part7">周报 - part7</li>
+          <!-- PPT -->
+          <li class="item " data-option="close">关闭客户端弹窗,放开场景</li>
+          <!-- 游戏环节 -->
+          <li class="item" data-page="code">抽号环节</li>
+          <li class="item " data-option="totalNum">发送总共多少人的弹窗</li>
+          <li class="item">
+              <input type="num" class="row-in J-row-in" placeholder="排" value=9 />排
+              <input type="num" class="col-in J-col-in" placeholder="列" value=8 />列
+          </li>
+          <li class="item " data-option="setCodeSitNo">切换座位抽号</li>
+          <li class="item " data-option="setCode">切换签到抽号</li>
+          <!--<li class="item " data-option="close">关闭所有弹窗</li>-->
+
+          <li class="item " data-page="cosplay">cosplay环节</li>
+          <li class="item">
+              <input type="text" class="name-in J-name-in" placeholder="夫妇名字"/>
+          </li>
+          <li class="item " data-option="setGroup" data-name="group1">给第一组命名</li>
+          <li class="item " data-option="setGroup" data-name="group2">给第二组命名</li>
+          <li class="item">
+              <!--<input type="number" class="name-in J-pic-in" placeholder="第几个剧照"/>-->
+              <select class="music-select name-in J-pic-in">
+                    <option value ="1">第一张图</option>
+                    <option value ="2">第二张图</option>
+                    <option value ="3">第三张图</option>
+                    <option value ="4">第四张图</option>
+                    <option value ="5">第五张图</option>
+              </select>
+          </li>
+          <li class="item " data-option="setPic">更换剧照</li>
+          <li class="item " data-option="enableScore">开始打分</li>
+          <li class="item " data-option="disableScore">停止打分</li>
+          <li class="item J-clean"data-option="clean">清除客户端缓存，谨慎操作！</li>
+      </ul>
+      <div class="btn-list J-taici">
+        0、欢迎大家参加本周的周例会，双十一了，看见大家的双手还健在
+        我安心了很多。本来以为场面会很血腥。首先我们来一次TC式的问候
+        大家下午好！<br><br>
+        0-8、不知道广大男同胞今天上午出门的时候是什么情况啊。听说
+        有人早上起床第一件事就是打开老婆的支付宝和网银，输入三次错
+        误密码，再去上班。我觉得也是蛮拼的。
+        0-9、来看一下我们今天都有哪些环节。<br><br>
+
+        1、说实话，我觉得今天大家都比较淡定是有原因的，天天挨着
+        女神工作哪有心思去想双十一这种日子。好，下面有请我们的
+        国内游女神来为我们做本周的开场show。<br><br>
+
+        2、前一段时间我彻夜难眠，想想又要自己过双十一了，
+        心里还是蛮悲伤的。直到我在准备周例会的时候看见了一个人，
+        下面有请给了我希望的TC岳父，肖老大！  <br><br>
+
+        3、我不是针对谁，我是说每次周例会大家都让新人介绍有没有
+        对象。接下来上来的小伙伴，不要问！直接约！~光棍节我们都
+        是单身！（为了满足强迫症患者，我想问下2位小伙伴你们是单身
+        么？问理想型是什么样的）<br><br>
+
+        4、我相信上天一定有某种秘制缘分在今天让接下来的小伙伴当
+        选周优秀。
+        （问周优秀问题，是不是单身不是现场配个对（上场人之间））<br><br>
+
+        5、说实话这一场下来把我能想的台词都说完了，月度优秀这个环节
+        我想了半个小时硬是想不出台词了，所以我给月度优秀想了一个
+        游戏！让我们先有请我们的月度优秀
+        （让他们拿歌词表达心情，表达不出来的留下游戏）<br><br>
+
+        over：
+        谁说的11.11就是光棍节，就得单身过，
+        我觉得11.11的真正含义是：1生1世1辈子只爱1个人。<br><br><br>
+      </div>
+      <!-- 台词界面 -->
+  </div>
+  <audio src="/media/notify.mp3" id='audio' preload></audio>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/zepto.min.js"></script>
+  <script src="/js/fastclick.min.js"></script>
+  <script src="/js/sweetalert.min.js"></script>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/room.js"></script>
+</body>
+</html>

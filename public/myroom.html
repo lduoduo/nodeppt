@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <meta name="wap-font-scale" content="no">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="applicable-device" content="mobile">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+  <title>周末欢乐~</title>
+  <link rel="stylesheet" href="/css/sweetalert.min.css">
+  <link rel="stylesheet" href="/css/room.css">
+  <link rel="stylesheet" href="/css/myroom.css">
+  <body>
+  <!-- 大屏展示-->
+  <a class="btn fixed btn-option J-open-QR">+</a>
+  <div class="page screen-left zlh" data-page="zlh"></div>
+  <div class="page screen-left mulu" data-page="mulu"></div>
+  <div class="page screen-left part1" data-page="part1"></div>
+  <div class="page screen-left part2" data-page="part2"></div>
+  <div class="page screen-left part3" data-page="part3"></div>
+  <div class="page screen-left new" data-page="new"></div>
+  <div class="page screen-left part4" data-page="part4"></div>
+  <div class="page screen-left yx1" data-page="yx1"></div>
+  <div class="page screen-left yx2" data-page="yx2"></div>
+  <div class="page screen-left yx3" data-page="yx3"></div>
+  <div class="page screen-left yx4" data-page="yx4"></div>
+  <div class="page screen-left part5" data-page="part5"></div>
+  <div class="page screen-left yd1" data-page="yd1"></div>
+  <div class="page screen-left yd2" data-page="yd2"></div>
+  <div class="page screen-left yd3" data-page="yd3"></div>
+  <div class="page screen-left part6" data-page="part6"></div>
+  <div class="page screen-left part7" data-page="part7"></div>
+
+  <div class="bg"></div>
+  <div class="page main" data-page="home">
+      <ul class="msg-list-align J-msg-align none">
+      </ul>
+      <marquee direction=up marquee scrollamount=5 class="msg-list J-msg" ></marquee>
+  </div>
+  <div class="page screen-left" data-page="code">
+      <h2>壮丁抓起来~~~</h2>
+      <ul class="code-list">
+          <li class="item male">
+              <p class='title'>男</p>
+              <ul class="sub-list"></ul>
+              <div class="option">
+                  <a class="btn btn-start J-start-code" data-sex="male" data-status="0">号码抽起来!</a>
+              </div>
+          </li>
+          <li class="item female">
+              <p class='title'>女</p>
+              <ul class="sub-list"></ul>
+              <div class="option">
+                  <a class="btn btn-start J-start-code" data-sex="female" data-status="0">号码抽起来!</a>
+              </div>
+          </li>
+          <div class="result J-result"></div>
+          <a class="btn btn-sit J-start-code-no none" data-sex="no" data-status="0">座位号摇起来</a>
+      </ul>
+
+  </div>
+  <div class="page screen-left" data-page="cosplay">
+    <div class="cosplay-list">
+        <div class="info">
+          <h3>游戏规则：</h3>
+          <p>两组"夫妇"，五张经典剧照，进行cosplay, 一张图片一轮评比比分，共计五轮，得分高的夫妇胜出</p>
+          <p>PS: 剧照中会用红色圈标出必须的道具，夫妇们必须要有对应的道具才可摆造型，请积极寻求场内朋友的帮助哦~</p>
+      </div>
+      <div class="group ">
+          <div class="item group1">
+              <div class="ava">
+                  <div class="item female"></div>
+                  <div class="item male"></div>
+                  <span class="title J-gourp1-name">？？夫妇</span>
+              </div>
+              <ul class="levels">
+                  <li class="item">
+                      <span class="flag">*</span>
+                      <span class="status status1"></span>
+                      <span class="num num1"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">**</span>
+                      <span class="status status2"></span>
+                      <span class="num num2"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">***</span>
+                      <span class="status status3"></span>
+                      <span class="num num3"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">****</span>
+                      <span class="status status4"></span>
+                      <span class="num num4"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">*****</span>
+                      <span class="status status5"></span>
+                      <span class="num num5"></span>
+                  </li>
+              </ul>
+              <div class="total">总分<span class='num'></span></div>
+          </div>
+          <div class="item group2">
+              <div class="ava">
+                  <div class="item female"></div>
+                  <div class="item male"></div>
+                  <span class="title J-gourp2-name">？？夫妇</span>
+              </div>
+              <ul class="levels">
+                  <li class="item">
+                      <span class="flag">*</span>
+                      <span class="status status1"></span>
+                      <span class="num num1"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">**</span>
+                      <span class="status status2"></span>
+                      <span class="num num2"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">***</span>
+                      <span class="status status3"></span>
+                      <span class="num num3"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">****</span>
+                      <span class="status status4"></span>
+                      <span class="num num4"></span>
+                  </li>
+                  <li class="item">
+                      <span class="flag">*****</span>
+                      <span class="status status5"></span>
+                      <span class="num num5"></span>
+                  </li>
+              </ul>
+              <div class="total">总分<span class='num'></span></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="page screen-left QR J-QR" data-page="QR">
+  </div>
+  <!--<audio src="/media/ckck.mp3" id='audio' preload controls="controls"></audio>-->
+  <canvas class='canvas' id="canvas">您的浏览器不支持canvas标签</canvas>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/zepto.min.js"></script>
+  <script src="/js/fastclick.min.js"></script>
+  <script src="/js/sweetalert.min.js"></script>
+  <script src="/js/jquery.js"></script>
+
+  <script src="/js/MusicVisualizePlug.js"></script>
+  <script src="/js/room.js"></script>
+</body>
+</html>

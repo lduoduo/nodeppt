@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Author" contect="GabrielChen">
+    <meta name="keywords" contect="Web Audio API">
+    <title>Web Audio API 学习</title>
+    <script>
+        var canvas;
+        var ctx;
+        var audioContext;
+        var analyser;
+        var mic;
+ 
+        function init() {
+            canvasOne = document.getElementById('canvasOne');
+            ctx = canvasOne.getContext("2d");
+            canvasTwo = document.getElementById('canvasTwo');
+            ctx2 = canvasTwo.getContext("2d");
+         
+             
+        }
+       
+        navigator.getMedia = ( navigator.getUserMedia ||
+                navigator.webkitGetUserMedia ||
+                navigator.mozGetUserMedia ||
+                navigator.msGetUserMedia);
+ 
+        navigator.getMedia ( { audio: true }, function (stream) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext);
+             
+            mic = audioContext.createMediaStreamSource(stream);
+            
+            analyser= audioContext.createAnalyser();
+            
+            analyser.fftSize = 256;
+            mic.connect(analyser);
+            drawSpectrum();
+        },function(){});
+ 
+         
+ 
+        function drawSpectrum() {
+            var WIDTH = canvasOne.width;
+            var HEIGHT= canvasOne.height;
+ 
+            var array =  new Uint8Array(128);
+            analyser.getByteFrequencyData(array);
+            ctx.clearRect(0, 0, WIDTH, HEIGHT);
+            ctx2.clearRect(0, 0, 800, 800);
+            for ( var i = 0; i < (array.length); i++ ){
+                var value = array[i];
+                ctx.fillRect(i*5,HEIGHT-value,3,HEIGHT);
+            }
+ 
+           
+            for ( var i = 0; i < (array.length); i++ ){
+                var value = array[i];
+                ctx2.beginPath();
+                ctx2.arc(300,300,value,0,360,false);
+                ctx2.lineWidth=5;
+                ctx2.strokeStyle="rgba("+value+","+value+",0,0.2)";
+                ctx2.stroke();//画空心圆
+                ctx2.closePath();
+         
+            }
+             
+            requestAnimationFrame(drawSpectrum);
+        };
+ 
+ 
+ 
+ 
+    </script>
+    <style>
+        #canvasOne {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body onload="init();">
+<h1>从audio源获取声音</h1>
+<audio src="/media/ckck.mp3" controls="controls" id="audio">你的浏览器不支持audio标签</audio>
+<h1>audio读取声音</h1>
+<canvas id="canvasFormAudio" width="640"></canvas>
+<h1>频域图模仿</h1>
+<canvas id="canvasOne" width="640"></canvas>
+<h1>圆形声波图</h1>
+<canvas id="canvasTwo" width="800" height="800"></canvas>
+ 
+<script type="text/javascript">
+ 
+ 
+        var context1;
+        var source;
+        var analyserfa;
+        var canvasFormAudio;
+        var ctxfa;
+ 
+        canvasFormAudio = document.getElementById('canvasFormAudio');
+        ctxfa = canvasFormAudio.getContext("2d");
+        try {
+        
+         context1 = new (window.AudioContext || window.webkitAudioContext);
+        } catch(e) {
+         throw new Error('The Web Audio API is unavailable');
+        }
+ 
+        analyserfa=context1.createAnalyser();
+ 
+        window.addEventListener('load', function(e) {
+             var audio =document.getElementById("audio");
+         var source = context1.createMediaElementSource(audio);
+         source.connect(analyserfa);
+         analyserfa.connect(context1.destination);
+     
+         drawSpectrumfa();
+   
+}, false);
+        function drawSpectrumfa() {
+            var WIDTH = canvasFormAudio.width;
+            var HEIGHT= canvasFormAudio.height;
+ 
+            var array =  new Uint8Array(128);
+            
+            analyserfa.getByteFrequencyData(array);
+ 
+            ctxfa.clearRect(0, 0, WIDTH, HEIGHT);
+            
+            for ( var i = 0; i < (array.length); i++ ){
+                var value = array[i];
+  　　　　　　　　 ctxfa.fillRect(i*5,HEIGHT-value,3,HEIGHT);
+            }
+ 
+             
+            requestAnimationFrame(drawSpectrumfa);
+        }
+</script>
+</body>
+</html>
