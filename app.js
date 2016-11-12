@@ -21,18 +21,9 @@ var defRoom = {
 	female: {},
 	male: {},
 	list: []
-};
+}; //默认空值，用户清空赋值
 
 io.on('connection', function (socket) {
-	// 获取请求建立socket连接的url
-	// 如: http://localhost:3000/room/room_1, roomID为room_1
-	// var url = socket.request.headers.referer;
-	// var splited = url.split('/');
-
-	// var roomID = splited[splited.length - 1];   // 获取房间ID
-	// var urlArr = roomID.match(/\S+\?/);
-	// roomID = urlArr && urlArr.length > 0 ? urlArr[0].replace('?', '') : roomID;
-
 	var roomID = "hf";
 	if (!room[roomID]) {
 		room[roomID] = JSON.parse(JSON.stringify(defRoom));
@@ -140,6 +131,6 @@ router.get('/room/:roomID', function (req, res) {
 
 app.use('/', router);
 
-server.listen(3002, function () {
-	console.log('server listening on port 3001');
+server.listen(3000, function () {
+	console.log('server listening on port 3000');
 });
