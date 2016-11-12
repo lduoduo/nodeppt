@@ -11,6 +11,7 @@
         暂停：mv.pause();
         恢复：mv.resume();
         停止：mv.stop();
+        更换音量：mv.changevolu(num);
  *  待完善：
  *      arraybuffer的本地缓存!
  */
