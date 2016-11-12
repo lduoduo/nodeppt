@@ -1,5 +1,5 @@
 {
-  "name": "chatapp-demo",
+  "name": "zhou li hui ppt",
   "version": "1.0.0",
   "description": "multi room chat app demo, powered by socket.io",
   "main": "app.js",
@@ -11,6 +11,6 @@
     "socket.io": "^1.3.6"
   },
   "devDependencies": {},
-  "author": "wuyanxin",
-  "license": "ISC"
+  "author": "lduoduo",
+  "license": "MIT"
 }
