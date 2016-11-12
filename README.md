@@ -5,7 +5,7 @@
 ![运行效果](http://ww3.sinaimg.cn/mw690/74d94e2egw1f9olb0390aj21kw10wdmq.jpg)
 
 run as:
-npm i
-node .
+#####npm i
+#####node .
 
 # nodeppt
