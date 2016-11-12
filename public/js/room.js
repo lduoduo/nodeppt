@@ -1,13 +1,20 @@
+/**
+ * 周例会主要业务js -- created by duoduo
+ * 依赖插件：
+ *   - sweetalert.js
+ *   - MusicVisualizer.js // MusicVisualizer_all.js(该文件是原始版本，包含各种注释)
+ *   - socket.io.js
+ */
 
 var my = {
-    sex: null,
-    info: {},
-    list: [],
-    femalelist: [],
-    malelist: [],
-    addedlist: [],
-    pageName: 'home',
-    isQRinprogress: false, //是否正在展示QR
+    sex: null, //性别，每个人签到必选
+    info: {}, //签到后自己的信息
+    list: [], //所有男女的签到列表
+    femalelist: [], //签到的男列表
+    malelist: [], //签到的女列表
+    addedlist: [], //刚签到进来的列表
+    pageName: 'home', //当前场景名称
+    isQRinprogress: false, //是否正在展示二维码QR
     isReady: false, //socket是否链接好
     isAdmin: /admin/.test(window.location.search), // 是否是管理员
     isCommon: window.location.pathname == "/myroom.html", // 是否是公共大屏
@@ -21,11 +28,11 @@ var my = {
             col: 0,
             row: 0
         }]
-    },
+    }, //座位号，包括共几排几列，已经选中的座位号
     tmpList: {
         female: [],
         male: []
-    }, //临时抽号池
+    }, //临时抽号池, 抽到一个，立即从池里移除
     codelist: {
         female: [],
         male: []
@@ -37,10 +44,10 @@ var my = {
             totalScore: 0
         },
         group2: { score: 0, totalScore: 0 }
-    } //两组夫妇内容展示
+    } //两组夫妇内容展示, 包括名字和每轮得分，以及总得分
 }
 
-var local = localStorage || window.localStorage;
+var local = localStorage || window.localStorage; //本地存储，签到成功后再次刷新页面无需再次签到
 var Mt = {
     alert: function (option) {
         //type, title, msg, btnMsg, cb, isLoading
@@ -62,12 +69,13 @@ var Mt = {
     close: function () {
         swal.close();
     }
-};
+}; //弹窗插件配置
 
 // ---------创建连接-----------
-var socket = io();
+var socket = io(); //初始化启动socket
 
 var s = {
+    //初始化总入口
     init: function () {
         this.initEvent();
         this.initStatus();
@@ -85,6 +93,7 @@ var s = {
             this.initMusic();
         }
     },
+    //初始化socket的各种监听事件
     initSocket: function () {
         // 加入房间
         socket.on('connect', function () {
@@ -127,8 +136,7 @@ var s = {
             console.log(data);
         });
     },
-    //初始化状态
-    // ----------设置昵称-------------
+    //初始化签到人的状态, 如果没有签到，则会显示弹窗让选择男女进行签到
     initStatus: function () {
         if (my.isCommon || my.isAdmin) {
             my.isReady = true;
@@ -154,7 +162,6 @@ var s = {
             $.extend(my.info, tmp);
             s.join();
         }
-
     },
     //大屏启动可视化BGM
     initMusic: function () {
@@ -166,6 +173,7 @@ var s = {
     optionMusic: function (data) {
         if (!my.isCommon) { return; }
         if (data.name == "range") {
+            //更改音量
             mv.changeVolumn(data.val);
             return;
         }
@@ -187,7 +195,7 @@ var s = {
     join: function () {
         socket.emit('join', my.info);
     },
-    //接受操作命令，进行操作
+    //接受各种操作命令，进行操作
     getOption: function (data) {
         console.log(data);
         //音乐操作的处理
@@ -326,6 +334,7 @@ var s = {
             });
         }
     },
+    //初始化各种交互事件
     initEvent: function () {
         // 发送消息
         $('.J-msg-in').keydown(function (e) {
@@ -637,11 +646,12 @@ var s = {
     }
 }
 
+//启动!
 s.init();
 
-//以下这些部分在安卓机上报错
+//测试数据代码
 // function test(num) {
-//     for (let i = 0; i < num; i++) {
+//     for (var i = 0; i < num; i++) {
 //         my.addedlist.push(testa());
 //     }
 // }
