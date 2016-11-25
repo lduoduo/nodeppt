@@ -1,9 +1,9 @@
 {
-  "name": "zhou li hui ppt",
+  "name": "ppt",
   "version": "1.0.0",
   "description": "multi room chat app demo, powered by socket.io",
   "main": "app.js",
-  "script":{
+  "scripts":{
     "start" : "node app.js"
   },
   "dependencies": {
