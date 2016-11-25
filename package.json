@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "multi room chat app demo, powered by socket.io",
   "main": "app.js",
+  "script":{
+    "start" : "node app.js"
+  },
   "dependencies": {
     "ejs": "^2.5.2",
     "express": "^4.13.3",
