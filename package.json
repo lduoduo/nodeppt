@@ -1,7 +1,7 @@
 {
   "name": "ppt",
   "version": "1.0.0",
-  "description": "multi room chat app demo, powered by socket.io",
+  "description": "chat app demo, powered by socket.io",
   "main": "app.js",
   "scripts":{
     "start" : "node app.js"
