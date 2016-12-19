@@ -70,7 +70,7 @@ input {
     overflow: auto;
 }
 .bg{
-    background: url('/img/bg.png') no-repeat center;
+    background: url('../img/bg.png') no-repeat center;
      -webkit-filter: blur(3px) contrast(70%);
      filter: blur(3px) contrast(70%);
      position: absolute;
@@ -243,20 +243,20 @@ input {
 }
 .screen-left .cosplay-list .group1 .ava .item.female{
 
-    background: url('/img/1.jpg') center no-repeat;
+    background: url('../img/1.jpg') center no-repeat;
     background-size: 100%;
 }
 .screen-left .cosplay-list .group1 .ava .item.male{
-    background: url('/img/11.jpg') center no-repeat;
+    background: url('../img/11.jpg') center no-repeat;
     background-size: 100%;
 }
 .screen-left .cosplay-list .group2 .ava .item.female{
 
-    background: url('/img/3.jpg') center no-repeat;
+    background: url('../img/3.jpg') center no-repeat;
     background-size: 100%;
 }
 .screen-left .cosplay-list .group2 .ava .item.male{
-    background: url('/img/13.jpg') center no-repeat;
+    background: url('../img/13.jpg') center no-repeat;
     background-size: 100%;
 }
 .screen-left .cosplay-list .group .ava .title{
@@ -377,75 +377,75 @@ input {
     z-index: 1;
 }
 .page.zlh{
-    background: url('/img/zlh.png') no-repeat center;
+    background: url('../img/zlh.png') no-repeat center;
     background-size: contain;
 }
 .page.mulu{
-    background: url('/img/mulu.png') no-repeat center;
+    background: url('../img/mulu.png') no-repeat center;
     background-size: contain;
 }
 .page.part1{
-    background: url('/img/part1.png') no-repeat center;
+    background: url('../img/part1.png') no-repeat center;
     background-size: contain;
 }
 .page.part2{
-    background: url('/img/part2.png') no-repeat center;
+    background: url('../img/part2.png') no-repeat center;
     background-size: contain;
 }
 .page.part3{
-    background: url('/img/part3.png') no-repeat center;
+    background: url('../img/part3.png') no-repeat center;
     background-size: contain;
 }
 .page.new{
-    background: url('/img/new.png') no-repeat center;
+    background: url('../img/new.png') no-repeat center;
     background-size: contain;
 }
 .page.part4{
-    background: url('/img/part4.png') no-repeat center;
+    background: url('../img/part4.png') no-repeat center;
     background-size: contain;
 }
 .page.yx1{
-    background: url('/img/yx1.png') no-repeat center;
+    background: url('../img/yx1.png') no-repeat center;
     background-size: contain;
 }
 .page.yx2{
-    background: url('/img/yx2.png') no-repeat center;
+    background: url('../img/yx2.png') no-repeat center;
     background-size: contain;
 }
 .page.yx3{
-    background: url('/img/yx3.png') no-repeat center;
+    background: url('../img/yx3.png') no-repeat center;
     background-size: contain;
 }
 .page.yx4{
-    background: url('/img/yx4.png') no-repeat center;
+    background: url('../img/yx4.png') no-repeat center;
     background-size: contain;
 }
 .page.part5{
-    background: url('/img/part5.png') no-repeat center;
+    background: url('../img/part5.png') no-repeat center;
     background-size: contain;
 }
 .page.yd1{
-    background: url('/img/yd1.png') no-repeat center;
+    background: url('../img/yd1.png') no-repeat center;
     background-size: contain;
 }
 .page.yd2{
-    background: url('/img/yd2.png') no-repeat center;
+    background: url('../img/yd2.png') no-repeat center;
     background-size: contain;
 }
 .page.yd3{
-    background: url('/img/yd3.png') no-repeat center;
+    background: url('../img/yd3.png') no-repeat center;
     background-size: contain;
 }
 .page.part6{
-    background: url('/img/part6.png') no-repeat center;
+    background: url('../img/part6.png') no-repeat center;
     background-size: contain;
 }
 .page.part7{
-    background: url('/img/part7.png') no-repeat center;
+    background: url('../img/part7.png') no-repeat center;
     background-size: contain;
 }
 .page.part6{
-    background: url('/img/part6.png') no-repeat center;
+    background: url('../img/part6.png') no-repeat center;
     background-size: contain;
 }
 

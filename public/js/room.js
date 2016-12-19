@@ -17,7 +17,7 @@ var my = {
     isQRinprogress: false, //是否正在展示二维码QR
     isReady: false, //socket是否链接好
     isAdmin: /admin/.test(window.location.search), // 是否是管理员
-    isCommon: window.location.pathname == "/myroom.html", // 是否是公共大屏
+    isCommon: /\/myroom.html/.test(window.location.href), // 是否是公共大屏
     timer: null, //显示签到人的定时器
     isCodeInprogress: false, //是否正在抽号
     codetimer: null, //抽号定时器
@@ -72,7 +72,8 @@ var Mt = {
 }; //弹窗插件配置
 
 // ---------创建连接-----------
-var socket = io(); //初始化启动socket
+// var socket = io(); //初始化启动socket
+var socket = io.connect({path: "/pptSocket"});
 
 var s = {
     //初始化总入口
@@ -167,7 +168,7 @@ var s = {
     initMusic: function () {
         window.mv = new MusicVisualizer();
         mv.ini($("#canvas")[0], window);
-        mv.play("/media/start_ckck.mp3", true);
+        mv.play("media/start_ckck.mp3", false);
     },
     //大屏BGM的各种操作
     optionMusic: function (data) {
@@ -181,7 +182,7 @@ var s = {
             mv[data.name]();
             return;
         }
-        mv.play("/media/" + data.val + ".mp3", true);
+        mv.play("media/" + data.val + ".mp3", false);
     },
     //发送消息
     sendMsg: function (msg) {
@@ -263,7 +264,7 @@ var s = {
                 Mt.alert({
                     title: '恭喜你抽中了!!!!!',
                     confirmBtnMsg: false,
-                    msg: '<div class="alert-img"><img src="/img/' + data.data.img + '"></div>',
+                    msg: '<div class="alert-img"><img src="img/' + data.data.img + '"></div>',
                     html: true
                 });
                 var audio = $('#audio')[0];
@@ -286,7 +287,7 @@ var s = {
             Mt.alert({
                 title: '',
                 confirmBtnMsg: false,
-                msg: '<div class="cosplay-pic"><img src="/img/pic' + data.val + '.' + url + '"></div>',
+                msg: '<div class="cosplay-pic"><img src="img/pic' + data.val + '.' + url + '"></div>',
                 html: true
             });
             if (my.isCommon) {
@@ -354,7 +355,7 @@ var s = {
                 Mt.alert({
                     title: '',
                     confirmBtnMsg: false,
-                    msg: '<div class="alert-QR"><img src="/img/url.jpg"></div>',
+                    msg: '<div class="alert-QR"><img src="img/url.jpg"></div>',
                     confirmBtnMsg: '扫一扫，十年少~',
                     btnMsg: '扫一扫，十年少~',
                     html: true,
@@ -394,7 +395,7 @@ var s = {
                 Mt.alert({
                     title: '',
                     confirmBtnMsg: false,
-                    msg: '<div class="alert-img"><img src="/img/' + my.info.img + '"><p>号码:<br>' + my.info.id + '<br>好运哦~</p></div>',
+                    msg: '<div class="alert-img"><img src="img/' + my.info.img + '"><p>号码:<br>' + my.info.id + '<br>好运哦~</p></div>',
                     html: true
                 });
             })
@@ -548,7 +549,7 @@ var s = {
                     Mt.alert({
                         title: '',
                         confirmBtnMsg: false,
-                        msg: '<div class="alert-img"><img src="/img/' + tmp.img + '"><p>' + tmp.id + '号进来了</p></div>',
+                        msg: '<div class="alert-img"><img src="img/' + tmp.img + '"><p>' + tmp.id + '号进来了</p></div>',
                         timer: 1000,
                         html: true
                     });
@@ -563,7 +564,7 @@ var s = {
             className = "right";
         }
         console.log('msg from :' + JSON.stringify(user));
-        var message = "<li class='" + className + " item'><img src='/img/" + user.img + "'></img><span class='msg'>" + msg + "</span></li>";
+        var message = "<li class='" + className + " item'><img src='img/" + user.img + "'><img><span class='msg'>" + msg + "</span></li>";
 
         $('.J-msg').append(message);
         // 滚动条保持最下方
@@ -598,7 +599,7 @@ var s = {
         my.codetimer = setInterval(function () {
             var i = Math.floor(Math.random() * my.tmpLength);
             var tmp = my.tmpList[sex][i];
-            var html = '<div class="alert-img"><img src="/img/' + tmp.img + '"><p class="code-id J-code-id" data-id="' + tmp.id + '" data-sex="' + sex + '">' + tmp.id + '</p></div>';
+            var html = '<div class="alert-img"><img src="img/' + tmp.img + '"><p class="code-id J-code-id" data-id="' + tmp.id + '" data-sex="' + sex + '">' + tmp.id + '</p></div>';
             $(my.tmpDom).html(html);
         }, 50);
         my.isCodeInprogress = !my.isCodeInprogress;

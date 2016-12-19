@@ -5,12 +5,13 @@ var router = express.Router();
 
 var app = express();
 var server = require('http').Server(app);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/ppt', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // 创建socket服务
-var io = IO(server);
+var io = IO(server, { path: '/pptSocket' });
 
 var room = {};
 // 房间用户名单
