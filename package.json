@@ -1,7 +1,7 @@
 {
-  "name": "ppt",
+  "name": "nodeppt",
   "version": "1.0.0",
-  "description": "chat app demo, powered by socket.io",
+  "description": "happy friday, powered by socket.io",
   "main": "app.js",
   "scripts":{
     "start" : "node app.js"
