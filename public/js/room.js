@@ -73,7 +73,7 @@ var Mt = {
 
 // ---------创建连接-----------
 // var socket = io(); //初始化启动socket
-var socket = io.connect({path: "/pptSocket"});
+var socket = io.connect({path: "/pptSocket","transports": ['websocket']});
 
 var s = {
     //初始化总入口
