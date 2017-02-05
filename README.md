@@ -1,6 +1,7 @@
 ## ppt based on socket.io
 ####周例会PPT互动演示效果
 [online demo](http://ldodo.cc/ppt/)
+[文档分享](http://note.youdao.com/noteshare?id=86f17e99b44b4984aa1167beef0e8c53)
 
 ![运行效果](http://ww2.sinaimg.cn/mw690/74d94e2egw1f9olaxj091j216o25ck2n.jpg)
 ![运行效果](http://ww2.sinaimg.cn/mw690/74d94e2egw1f9olayja1sj20ku1120u6.jpg)
